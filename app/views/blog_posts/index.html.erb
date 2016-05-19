@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Blog Posts</h1>
+
+
+
+
+
+    <div class="row">
+      <% @blog_posts.each do |blog_post| %>
+         <div class="col s12 m6">
+           <div class="card blue-grey darken-1">
+             <div class="card-content white-text">
+               <span class="card-title"><%= link_to blog_post.title, blog_post %></span><br>
+               <span class="card-author"><%= blog_post.author %></span><br>
+               <p><%= h truncate(blog_post.blog_entry, :length => 80) %></p>
+             </div>
+             <div class="card-action">
+               <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
+               <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div>
+           </div>
+         </div>
+        <% end %>
+       </div>
+
+<br>
+<div class="center">
+  <button class="btn waves-effect waves-light #fffde7 yellow lighten-5" type="submit" name="action"><%= link_to 'New Blog post', new_blog_post_path %>
+      <i class="material-icons right"></i>
+  </button>
+</div>
