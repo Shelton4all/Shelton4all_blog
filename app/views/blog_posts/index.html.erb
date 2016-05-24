@@ -15,10 +15,12 @@
                <span class="card-author"><%= blog_post.author %></span><br>
                <p><%= h truncate(blog_post.blog_entry, :length => 80) %></p>
              </div>
-             <div class="card-action">
-               <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
-               <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %>
-             </div>
+             <% if current_user.id == blog_post.user_id %>
+               <div class="card-action">
+                 <%= link_to 'Edit', edit_blog_post_path(blog_post) %>
+                 <%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %>
+               </div>
+             <% end %>
            </div>
          </div>
         <% end %>
