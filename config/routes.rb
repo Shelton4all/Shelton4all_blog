@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   resources :comments
   resources :blog_posts
-  root to: 'home#index'
+
+  get 'your_posts' => 'blog_posts#your_posts'
+
+  authenticated :user do
+    root 'blog_posts#your_posts', as: :authenticated_root
+  end
+
+  root 'blog_posts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

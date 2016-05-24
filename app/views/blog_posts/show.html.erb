@@ -7,7 +7,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @blog_post.author %>
+  <%= @blog_post.user.email %>
   <%= @blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %>
 </p>
 

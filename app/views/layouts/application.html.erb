@@ -12,22 +12,26 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo" id='nav-logo'>Logo</a>
+      <a href="#" class="brand-logo" id='nav-logo'>Shelton's Blog</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
+        <li><a href="sass.html">View all</a></li>
+        <li><a href="badges.html">Post</a></li>
 
-      <div class="container left">
-        <div class="left">
+
+      <!-- <div class="container left">
+        <div class="right"> -->
           <% if user_signed_in? %>
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+          <li>  <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn red" %></li>
+          <li> <%= link_to "Edit Profile", edit_user_registration_path, class: "btn blue"
+           %></li>
+          <% else %>
+            <li> <%= link_to "Sign In", new_user_session_path, class: "btn blue"
+             %></li>
           <% end %>
-        </div>
-      </div>
-
+        <!-- </div>
+      </div> -->
+</ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="sass.html">Sass</a></li>
         <li><a href="badges.html">Components</a></li>
